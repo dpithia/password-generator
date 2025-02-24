@@ -3,6 +3,7 @@ let pass1 = document.getElementById("password-1");
 let pass2 = document.getElementById("password-2");
 let numOfChars = document.getElementById("password-length");
 let value = numOfChars.value;
+let passwordContainer = document.getElementById("password-container");
 
 // Add event listener
 passwordGen.addEventListener("click", putPassword);
@@ -113,6 +114,8 @@ function putPassword() {
   const password2 = generatePassword();
   pass1.textContent = password1;
   pass2.textContent = password2;
+
+  passwordContainer.classList.remove("hidden");
 }
 
 function copy(element) {

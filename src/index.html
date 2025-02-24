@@ -9,17 +9,64 @@
       .password-box {
         user-select: none;
         transition: all 0.2s;
+        position: relative;
       }
+
       .password-box:hover {
         background-color: #324764 !important;
       }
+
       .gen-button:hover {
         background-color: #5aae91;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: auto;
+        background-color: #273549;
+        color: white;
+        text-align: center;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        position: absolute;
+        z-index: 1;
+        bottom: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      /* Add styles for hidden state */
+      .hidden {
+        display: none;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body class="bg-[#1C1C1C] min-h-screen flex items-center justify-center">
-    <div class="bg-[#111827] max-w-3xl h-150 rounded-md">
+    <div class="bg-[#111827] w-[600px] h-150 rounded-md">
       <div class="p-14 mt-20">
         <h1 class="text-white text-4xl">Generate a</h1>
         <h1 class="text-emerald-400 text-4xl">Random Password</h1>
@@ -33,7 +80,6 @@
         <select
           class="text-white text-sm bg-emerald-400 p-2 rounded-md ml-8"
           id="password-length"
-          class="length-select w-48"
         >
           <option value="8">8 characters</option>
           <option value="12">12 characters</option>
@@ -42,18 +88,23 @@
           <option value="24">24 characters</option>
         </select>
         <hr class="text-[#242d45] mt-10" />
-        <div class="flex">
-          <div
-            class="bg-[#273549] w-52 h-8 mt-20 password-box rounded-md mr-10 text-white flex items-center justify-center cursor-pointer select-none password-box hover:bg-[#324764]"
-            id="password-1"
-            onclick="copy(this)"
-          ></div>
-
-          <div
-            class="bg-[#273549] w-52 h-8 mt-20 rounded-md text-white flex items-center justify-center cursor-pointer select-none password-box hover:bg-[#324764]"
-            id="password-2"
-            onclick="copy(this)"
-          ></div>
+        <div class="hidden" id="password-container">
+          <div class="tooltip mr-10">
+            <div
+              class="bg-[#273549] w-54 h-8 mt-5 password-box rounded-md text-white flex items-center justify-center cursor-pointer select-none"
+              id="password-1"
+              onclick="copy(this)"
+            ></div>
+            <span class="tooltiptext">Copy to clipboard</span>
+          </div>
+          <div class="tooltip">
+            <div
+              class="bg-[#273549] w-54 h-8 mt-5 password-box rounded-md text-white flex items-center justify-center cursor-pointer select-none"
+              id="password-2"
+              onclick="copy(this)"
+            ></div>
+            <span class="tooltiptext">Copy to clipboard</span>
+          </div>
         </div>
       </div>
     </div>
