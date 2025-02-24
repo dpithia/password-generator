@@ -1,6 +1,8 @@
 let passwordGen = document.getElementById("btn-generate");
 let pass1 = document.getElementById("password-1");
 let pass2 = document.getElementById("password-2");
+let numOfChars = document.getElementById("password-length");
+let value = numOfChars.value;
 
 // Add event listener
 passwordGen.addEventListener("click", putPassword);
@@ -98,8 +100,8 @@ const characters = [
 
 function generatePassword() {
   let password = "";
-  for (let i = 0; i < 15; i++) {
-    // generates 15-character password
+  const length = parseInt(numOfChars.value);
+  for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
     password += characters[randomIndex];
   }

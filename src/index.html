@@ -30,6 +30,17 @@
         >
           Generate passwords
         </button>
+        <select
+          class="text-white text-sm bg-emerald-400 p-2 rounded-md ml-8"
+          id="password-length"
+          class="length-select w-48"
+        >
+          <option value="8">8 characters</option>
+          <option value="12">12 characters</option>
+          <option value="16">16 characters</option>
+          <option value="20">20 characters</option>
+          <option value="24">24 characters</option>
+        </select>
         <hr class="text-[#242d45] mt-10" />
         <div class="flex">
           <div
@@ -37,6 +48,7 @@
             id="password-1"
             onclick="copy(this)"
           ></div>
+
           <div
             class="bg-[#273549] w-52 h-8 mt-20 rounded-md text-white flex items-center justify-center cursor-pointer select-none password-box hover:bg-[#324764]"
             id="password-2"
